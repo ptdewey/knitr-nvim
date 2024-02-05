@@ -14,11 +14,8 @@ require("knitr")
 ## Usage
 This plugin provides two different commands for knitting R files:
 
-Knitting to PDF:
-- `:KnitRpdf`
+Knitting to PDF - `:KnitRpdf`
 
-Knitting to HTML:
-- `:KnitRhtml`
+Knitting to HTML - `:KnitRhtml`
 
 Running either command will knit the file in the current buffer to the desired output format.
-
