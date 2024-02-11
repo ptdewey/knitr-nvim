@@ -22,11 +22,12 @@ K.knitr_pdf = function()
         Job:new({
             command = pdf_script_path,
             args = { filepath },
-            on_exit = function(_, return_val)
+            on_exit = function(output, return_val)
                 if (return_val == 0) then
                     print("Knitting finished sucessfully.")
                 else
                     print("Knitting failed with exit code: " .. return_val)
+                    print("Error Trace:" .. output)
                 end
             end,
         }):start()
@@ -38,7 +39,7 @@ K.knitr_pdf = function()
 end
 
 -- knit file to html
-K.knitr_html= function()
+K.knitr_html = function()
     local filename = vim.fn.expand("%:t")
 
     -- check if current file is an R file
@@ -66,8 +67,10 @@ K.knitr_html= function()
     end
 end
 
--- Create user commands
-vim.api.nvim_create_user_command("KnitRpdf", K.knitr_pdf, {})
-vim.api.nvim_create_user_command("KnitRhtml", K.knitr_html, {})
+-- Create user commands upon setup
+K.setup = function(_)
+    vim.api.nvim_create_user_command("KnitRpdf", K.knitr_pdf, {})
+    vim.api.nvim_create_user_command("KnitRhtml", K.knitr_html, {})
+end
 
 return K
