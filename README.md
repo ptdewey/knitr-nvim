@@ -1,14 +1,14 @@
 # knitr-nvim
 Knit R and Rmd files quickly inside of Neovim
 
-## Installation
+## Installation and Setup
 Use your favorite package manager (I use lazy)
 
 ```lua
 -- install package from GitHub
 "ptdewey/knitr-nvim"
 -- Load the custom user commands
-require("knitr")
+require("knitr").setup()
 ```
 
 ## Usage
