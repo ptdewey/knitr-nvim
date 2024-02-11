@@ -27,7 +27,8 @@ K.knitr_pdf = function()
                     print("Knitting finished sucessfully.")
                 else
                     print("Knitting failed with exit code: " .. return_val)
-                    print("Error Trace:" .. output)
+                    print("Error Trace:")
+                    print(vim.inspect(output))
                 end
             end,
         }):start()
