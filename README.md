@@ -5,10 +5,18 @@ Knit R and Rmd files quickly inside of Neovim
 Use your favorite package manager (I use lazy)
 
 ```lua
--- install package from GitHub
-"ptdewey/knitr-nvim"
--- Load the custom user commands
-require("knitr").setup()
+{
+    -- install package from GitHub
+    "ptdewey/knitr-nvim",
+
+    -- ensure plenary is installed
+    dependencies = {
+        "nvim-lua/plenary.nvim",
+    },
+
+    -- run plugin setup
+    require("knitr").setup()
+}
 ```
 
 ## Usage
